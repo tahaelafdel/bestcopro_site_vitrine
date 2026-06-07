@@ -1,0 +1,74 @@
+name: Deploy BestCOPRO
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    env:
+      DEPLOY_PATH: ${{ secrets.VPS_PATH || '/var/www/bestcopro' }}
+      SSH_PORT: ${{ secrets.VPS_PORT || '22' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Prepare SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$SSH_PORT" -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Package build
+        run: tar -czf bestcopro-dist.tar.gz -C dist .
+
+      - name: Upload build archive
+        run: |
+          scp -i ~/.ssh/deploy_key -P "$SSH_PORT" bestcopro-dist.tar.gz \
+            "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/tmp/bestcopro-${{ github.sha }}.tar.gz"
+
+      - name: Activate release on VPS
+        run: |
+          ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" << EOF
+          set -e
+          DEPLOY_PATH="$DEPLOY_PATH"
+          RELEASE_PATH="\$DEPLOY_PATH/releases/${{ github.sha }}"
+
+          mkdir -p "\$RELEASE_PATH"
+          tar -xzf "/tmp/bestcopro-${{ github.sha }}.tar.gz" -C "\$RELEASE_PATH"
+          ln -sfn "\$RELEASE_PATH" "\$DEPLOY_PATH/current"
+          rm -f "/tmp/bestcopro-${{ github.sha }}.tar.gz"
+
+          if command -v nginx >/dev/null 2>&1; then
+            sudo nginx -t
+            sudo systemctl reload nginx
+          fi
+          EOF
+
