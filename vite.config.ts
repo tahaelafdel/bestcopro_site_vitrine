@@ -5,7 +5,38 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react(),
+      tailwindcss(),
+      {
+        name: 'async-production-css',
+        apply: 'build',
+        transformIndexHtml: {
+          order: 'post',
+          handler(html) {
+            return html.replace(
+              /<link rel="stylesheet" crossorigin href="([^"]+\.css)">/g,
+              `<link rel="preload" crossorigin href="$1" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" crossorigin href="$1"></noscript>`,
+            );
+          },
+        },
+      },
+    ],
+    build: {
+      minify: 'esbuild',
+      cssMinify: true,
+      modulePreload: true,
+      rollupOptions: {
+        treeshake: true,
+        output: {
+          manualChunks: {
+            react: ['react', 'react-dom'],
+            motion: ['motion'],
+            icons: ['lucide-react'],
+          },
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

@@ -92,6 +92,9 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
           <img 
             alt="Immeuble moderne à Rabat" 
             className="w-full h-full object-cover opacity-25 scale-105 transition-transform duration-10000 ease-out" 
+            width={1600}
+            height={900}
+            fetchPriority="high"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFua32oylC4XHlsFr4yN70_-__U4mG-vqSq94CdxH8hR0iYHOr-6mJJSi3mdziPeNL0MPufcwDMSIqRaBuMfDsdKH0nDeXgqwShtu_x6ctrc5pO_VlLkICc-OpVyB-cJRNDkSXE0zTy66bxjtC10wOyxE2UI_cEJZnADgS2DQI7G30lWPWk-KTTOPdtXs1I8zHtGa8RkQDfuwcY2pMpLtfWXiGpitNH7OtwmgnLN8ZWlQTWxUqcPCMwLyBo9Oy9yaEo4ktvKcBz64"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#f7f9ff]/90 via-transparent to-[#f7f9ff]/90"></div>
@@ -164,6 +167,9 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <img
                 alt="Équipe BestCOPRO devant une résidence avec application mobile"
                 className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                width={1024}
+                height={1024}
+                loading="lazy"
                 src={syndicHeroImage}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#002046]/40 to-transparent"></div>
@@ -310,6 +316,9 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                     className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
                       isActive ? "scale-105 opacity-90" : "scale-100 opacity-40 hover:opacity-60"
                     }`}
+                    width={1200}
+                    height={800}
+                    loading="lazy"
                     src={residence.imageUrl}
                   />
                   
@@ -489,7 +498,14 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                   onClick={(e) => e.preventDefault()}
                   aria-label="Télécharger sur l'App Store"
                 >
-                  <img src={appleStoreBadge} alt="Télécharger dans l'App Store" className="h-12 w-auto" />
+                  <img
+                    src={appleStoreBadge}
+                    alt="Télécharger dans l'App Store"
+                    className="h-12 w-auto"
+                    width={150}
+                    height={45}
+                    loading="lazy"
+                  />
                 </a>
                 <a 
                   href="#"
@@ -497,7 +513,14 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                   onClick={(e) => e.preventDefault()}
                   aria-label="Disponible sur Google Play"
                 >
-                  <img src={googleStoreBadge} alt="Disponible sur Google Play" className="h-12 w-auto" />
+                  <img
+                    src={googleStoreBadge}
+                    alt="Disponible sur Google Play"
+                    className="h-12 w-auto"
+                    width={150}
+                    height={45}
+                    loading="lazy"
+                  />
                 </a>
               </div>
             </motion.div>
@@ -542,6 +565,9 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                     <img 
                       alt={testimonial.name} 
                       className="w-12 h-12 rounded-full object-cover border-2 border-[#e3efff]" 
+                      width={48}
+                      height={48}
+                      loading="lazy"
                       src={testimonial.avatarUrl}
                     />
                     <div>
@@ -574,6 +600,9 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                     <img 
                       alt={testimonial.name} 
                       className="w-12 h-12 rounded-full object-cover border-2 border-[#e3efff]" 
+                      width={48}
+                      height={48}
+                      loading="lazy"
                       src={testimonial.avatarUrl}
                     />
                     <div>

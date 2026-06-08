@@ -1,9 +1,9 @@
 import { ChargeBill, Complaint, AssemblyVote, CoproprietaireUser } from "./types";
 
-const saraMellaliImage = new URL("../assets/images/sara mellali.png", import.meta.url).href;
-const hichamKoundousImage = new URL("../assets/images/hicham koundous.png", import.meta.url).href;
-const aliDerrafImage = new URL("../assets/images/Ali derraf.png", import.meta.url).href;
-const abderrahimKilaniImage = new URL("../assets/images/abderrahim kilani.png", import.meta.url).href;
+const saraMellaliImage = new URL("../assets/images/sara mellali.webp", import.meta.url).href;
+const hichamKoundousImage = new URL("../assets/images/hicham koundous.webp", import.meta.url).href;
+const aliDerrafImage = new URL("../assets/images/Ali derraf.webp", import.meta.url).href;
+const abderrahimKilaniImage = new URL("../assets/images/abderrahim kilani.webp", import.meta.url).href;
 
 export interface Residence {
   id: string;

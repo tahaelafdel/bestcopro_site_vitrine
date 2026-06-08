@@ -30,6 +30,8 @@ export default function Header() {
             src={siteLogo}
             alt="Best Copro"
             className="block h-12 w-auto max-w-[180px] object-contain"
+            width={1900}
+            height={464}
           />
         </button>
 

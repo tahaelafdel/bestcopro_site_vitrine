@@ -50,6 +50,9 @@ export default function App() {
                 src={siteLogo}
                 alt="Best Copro"
                 className="block h-12 w-auto max-w-[180px] object-contain brightness-0 invert"
+                width={1900}
+                height={464}
+                loading="lazy"
               />
             </div>
 
@@ -100,7 +103,14 @@ export default function App() {
                 className="transition-transform duration-300 hover:-translate-y-0.5"
                 aria-label="Télécharger dans l'App Store"
               >
-                <img src={appleStoreBadge} alt="Télécharger dans l'App Store" className="h-11 w-auto" />
+                <img
+                  src={appleStoreBadge}
+                  alt="Télécharger dans l'App Store"
+                  className="h-11 w-auto"
+                  width={150}
+                  height={45}
+                  loading="lazy"
+                />
               </a>
               <a
                 href="#"
@@ -108,7 +118,14 @@ export default function App() {
                 className="transition-transform duration-300 hover:-translate-y-0.5"
                 aria-label="Disponible sur Google Play"
               >
-                <img src={googleStoreBadge} alt="Disponible sur Google Play" className="h-11 w-auto" />
+                <img
+                  src={googleStoreBadge}
+                  alt="Disponible sur Google Play"
+                  className="h-11 w-auto"
+                  width={150}
+                  height={45}
+                  loading="lazy"
+                />
               </a>
             </div>
           </div>

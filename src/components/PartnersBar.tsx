@@ -9,36 +9,50 @@ const partners = [
     name: "Attijariwafa bank",
     logo: new URL("../../logo/Attijariwafa bank-vector.ma.svg-vector.ma.svg", import.meta.url).href,
     imageClassName: "max-h-[54px] max-w-[170px] object-contain",
+    width: 170,
+    height: 54,
   },
   {
     name: "Banque populaire",
     logo: new URL("../../logo/Banque populaire 2022-vector.ma.svg-vector.ma.svg", import.meta.url).href,
     imageClassName: "max-h-[54px] max-w-[170px] object-contain",
+    width: 170,
+    height: 54,
   },
   {
     name: "CMI",
     logo: new URL("../../logo/CMI - Centre Mon_tique In-vector.ma.svg", import.meta.url).href,
     imageClassName: "max-h-[54px] max-w-[150px] object-contain",
+    width: 150,
+    height: 54,
   },
   {
     name: "Credit Agricole",
     logo: new URL("../../logo/Credit Agricole Du Maroc-vector.ma.svg-vector.ma.svg", import.meta.url).href,
     imageClassName: "max-h-[54px] max-w-[170px] object-contain",
+    width: 170,
+    height: 54,
   },
   {
     name: "Otis",
     logo: new URL("../../logo/Otis_logo.SVG", import.meta.url).href,
     imageClassName: "max-h-[44px] max-w-[136px] object-contain",
+    width: 136,
+    height: 44,
   },
   {
     name: "Redal",
     logo: new URL("../../logo/Redal-vector.ma.svg-vector.ma.svg", import.meta.url).href,
     imageClassName: "max-h-[48px] max-w-[154px] object-contain",
+    width: 154,
+    height: 48,
   },
   {
     name: "Bank of Africa",
     logo: new URL("../../logo/bank of africa logo-vector.ma.svg-vector.ma.svg", import.meta.url).href,
     imageClassName: "h-full w-full object-cover object-center",
+    width: 160,
+    height: 70,
   },
 ];
 
@@ -55,6 +69,8 @@ export default function PartnersBar() {
             src={partner.logo}
             alt={partner.name}
             className={`block ${partner.imageClassName}`}
+            width={partner.width}
+            height={partner.height}
             loading="lazy"
           />
         </div>
