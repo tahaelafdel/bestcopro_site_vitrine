@@ -452,10 +452,9 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                     loading="lazy"
                   />
                 </a>
-                <a 
-                  href="#"
+                <button 
+                  type="button"
                   className="transition-transform duration-300 hover:-translate-y-0.5"
-                  onClick={(e) => e.preventDefault()}
                   aria-label="Disponible sur Google Play"
                 >
                   <img
@@ -466,7 +465,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                     height={45}
                     loading="lazy"
                   />
-                </a>
+                </button>
               </div>
             </div>
             
@@ -619,15 +618,15 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <div className="pt-8 mt-12 border-t border-gray-100">
                 <h5 className="font-bold text-xs text-gray-400 uppercase tracking-widest mb-4">Suivez-nous :</h5>
                 <div className="flex gap-4">
-                  <a href="#" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#002046] hover:text-white transition-all shadow-xs" onClick={(e) => e.preventDefault()}>
+                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#002046] hover:text-white transition-all shadow-xs" aria-label="Partager Bestcopro">
                     <Share2 className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#bb0027] hover:text-white transition-all shadow-xs" onClick={(e) => e.preventDefault()}>
+                  </button>
+                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#bb0027] hover:text-white transition-all shadow-xs" aria-label="Instagram Bestcopro">
                     <Instagram className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all shadow-xs" onClick={(e) => e.preventDefault()}>
+                  </button>
+                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all shadow-xs" aria-label="Site web Bestcopro">
                     <Globe className="w-5 h-5" />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

@@ -83,7 +83,7 @@ export default function App() {
             <h4 className="font-display font-bold text-sm text-[#aec7f7] uppercase tracking-wider">Liens Utiles</h4>
             <ul className="space-y-2 text-xs scroll-smooth">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:translate-x-1.5 transition-all inline-block">
+                <a href="/" className="text-gray-400 hover:text-white hover:translate-x-1.5 transition-all inline-block">
                   Accueil
                 </a>
               </li>
@@ -114,9 +114,8 @@ export default function App() {
                   loading="lazy"
                 />
               </a>
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+              <button
+                type="button"
                 className="transition-transform duration-300 hover:-translate-y-0.5"
                 aria-label="Disponible sur Google Play"
               >
@@ -128,7 +127,7 @@ export default function App() {
                   height={45}
                   loading="lazy"
                 />
-              </a>
+              </button>
             </div>
           </div>
         </div>
