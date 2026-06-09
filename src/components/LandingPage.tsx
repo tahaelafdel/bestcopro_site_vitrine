@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import PartnersBar from "./PartnersBar";
 import { 
   Building, 
@@ -23,27 +22,9 @@ import { ContactSubmission } from "../types";
 const syndicHeroImage = new URL("../../assets/images/image_syndic_hero.webp", import.meta.url).href;
 const appleStoreBadge = new URL("../../assets/images/download-apple-store.svg", import.meta.url).href;
 const googleStoreBadge = new URL("../../assets/images/download-google-store.svg", import.meta.url).href;
+const appStoreUrl = "https://apps.apple.com/ci/app/bestcopro-mobile-app/id6446234444";
 
-const revealViewport = { once: true, margin: "-100px" };
-const smoothEase = [0.16, 1, 0.3, 1] as const;
 
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const staggerItem = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: smoothEase },
-  },
-};
 
 interface LandingPageProps {
   onContactSubmit: (submission: Omit<ContactSubmission, "id" | "submittedAt">) => void;
@@ -95,7 +76,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             width={1600}
             height={900}
             fetchPriority="high"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFua32oylC4XHlsFr4yN70_-__U4mG-vqSq94CdxH8hR0iYHOr-6mJJSi3mdziPeNL0MPufcwDMSIqRaBuMfDsdKH0nDeXgqwShtu_x6ctrc5pO_VlLkICc-OpVyB-cJRNDkSXE0zTy66bxjtC10wOyxE2UI_cEJZnADgS2DQI7G30lWPWk-KTTOPdtXs1I8zHtGa8RkQDfuwcY2pMpLtfWXiGpitNH7OtwmgnLN8ZWlQTWxUqcPCMwLyBo9Oy9yaEo4ktvKcBz64"
+            src={syndicHeroImage}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#f7f9ff]/90 via-transparent to-[#f7f9ff]/90"></div>
           {/* Subtle grid pattern overlay */}
@@ -103,11 +84,9 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 text-center">
-          <motion.div
+          <div
             className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: smoothEase }}
           >
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#002046] font-extrabold mb-6 leading-tight tracking-tight">
               Gérez votre copropriété en toute <span className="text-[#bb0027] inline-block relative font-black">simplicité</span>
@@ -130,7 +109,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                 Découvrir l'application Mobile
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -138,12 +117,8 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
+            <div
               className="order-2 lg:order-1"
-              initial={{ opacity: 0, x: -36 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={revealViewport}
-              transition={{ duration: 0.65, ease: smoothEase }}
             >
               <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">QUI SOMMES-NOUS ?</span>
               <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-black tracking-tight mb-6">
@@ -155,14 +130,10 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <p className="font-sans text-gray-600 leading-relaxed">
                 Notre objectif est simple : vous offrir un service transparent, réactif et un accompagnement de tous les instants pour valoriser votre patrimoine en toute sérénité.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
+            <div
               className="order-1 lg:order-2 relative rounded-2xl overflow-hidden shadow-xl aspect-4/3 lg:aspect-square"
-              initial={{ opacity: 0, x: 36 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={revealViewport}
-              transition={{ duration: 0.65, ease: smoothEase }}
             >
               <img
                 alt="Équipe BestCOPRO devant une résidence avec application mobile"
@@ -173,7 +144,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                 src={syndicHeroImage}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#002046]/40 to-transparent"></div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -181,27 +152,19 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
       {/* 3. Value Proposition (Our Expertise) */}
       <section id="expertise" className="py-20 bg-[#F1F4F8] border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
+          <div
             className="text-center max-w-2xl mx-auto mb-16"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={revealViewport}
-            transition={{ duration: 0.55, ease: smoothEase }}
           >
             <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">CONTRATS & SERVICES</span>
             <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Notre Expertise</h2>
             <p className="font-sans text-gray-500 text-base md:text-lg">Une gestion complète, transparente et sécurisée pour votre tranquillité.</p>
-          </motion.div>
+          </div>
           
-          <motion.div
+          <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
           >
             {/* Card 1 */}
-            <motion.div variants={staggerItem} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-[#edf4ff] flex items-center justify-center text-[#002046] group-hover:bg-[#002046] group-hover:text-white transition-colors mb-6">
                   <FileText className="w-6 h-6" />
@@ -214,10 +177,10 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <div className="mt-6 pt-4 border-t border-gray-50 flex items-center text-[#bb0027] font-semibold text-xs uppercase tracking-wider">
                 Excellence Administrative
               </div>
-            </motion.div>
+            </div>
 
             {/* Card 2 */}
-            <motion.div variants={staggerItem} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-[#edf4ff] flex items-center justify-center text-[#002046] group-hover:bg-[#002046] group-hover:text-white transition-colors mb-6">
                   <DollarSign className="w-6 h-6" />
@@ -230,10 +193,10 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <div className="mt-6 pt-4 border-t border-gray-50 flex items-center text-[#bb0027] font-semibold text-xs uppercase tracking-wider">
                 Réf. Comptable Maroc
               </div>
-            </motion.div>
+            </div>
 
             {/* Card 3 */}
-            <motion.div variants={staggerItem} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-[#edf4ff] flex items-center justify-center text-[#002046] group-hover:bg-[#002046] group-hover:text-white transition-colors mb-6">
                   <Wrench className="w-6 h-6" />
@@ -246,10 +209,10 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <div className="mt-6 pt-4 border-t border-gray-50 flex items-center text-[#bb0027] font-semibold text-xs uppercase tracking-wider">
                 Suivi chantiers
               </div>
-            </motion.div>
+            </div>
 
             {/* Card 4 */}
-            <motion.div variants={staggerItem} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-[#edf4ff] flex items-center justify-center text-[#002046] group-hover:bg-[#002046] group-hover:text-white transition-colors mb-6">
                   <Smartphone className="w-6 h-6" />
@@ -262,35 +225,27 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <div className="mt-6 pt-4 border-t border-[#edf4ff] flex items-center text-[#bb0027] font-semibold text-xs uppercase tracking-wider">
                 Web & Mobile Intégrés
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 4. Residences Showcase (Updated with custom dynamic Accordion) */}
       <section id="references" className="py-20 bg-[#f0f4f9] overflow-hidden">
-        <motion.div
+        <div
           className="max-w-7xl mx-auto px-6 mb-12 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={revealViewport}
-          transition={{ duration: 0.55, ease: smoothEase }}
         >
           <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">NOS RÉFÉRENCES</span>
           <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Résidences de Prestige</h2>
           <p className="font-sans text-gray-500 text-base md:text-lg max-w-2xl mx-auto">
             Découvrez quelques-unes des copropriétés résidentielles marocaines de haut standing qui font confiance à Bestcopro.
           </p>
-        </motion.div>
+        </div>
 
         {/* Accordion Container */}
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
+          <div
             className="flex flex-col lg:flex-row w-full min-h-[460px] lg:min-h-[520px] rounded-2xl overflow-hidden shadow-xl border border-white bg-[#002046]"
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={revealViewport}
-            transition={{ duration: 0.65, ease: smoothEase }}
           >
             {RESIDENCES_DATA.map((residence) => {
               const isActive = activeResidence === residence.id;
@@ -361,7 +316,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                 </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -377,12 +332,8 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             {/* Visual Phone side-by-side */}
-            <motion.div
+            <div
               className="lg:col-span-5 flex justify-center order-2 lg:order-1"
-              initial={{ opacity: 0, y: 42 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={revealViewport}
-              transition={{ duration: 0.7, ease: smoothEase }}
             >
               <div className="relative w-full max-w-[340px] aspect-9/19 bg-black rounded-[48px] p-3 shadow-2xl border-4 border-gray-800 ring-12 ring-gray-900/10">
                 {/* Speaker pill */}
@@ -449,15 +400,11 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Description side */}
-            <motion.div
+            <div
               className="lg:col-span-7 lg:pl-8 order-1 lg:order-2"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={revealViewport}
-              transition={{ duration: 0.6, ease: smoothEase }}
             >
               <span className="text-[#bb0027] bg-white/10 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest inline-block mb-4">
                 APPLICATION MOBILE
@@ -469,33 +416,30 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                 Votre copropriété dans votre poche. Une application simple et intuitive conçue pour vous permettre de piloter votre quotidien, de communiquer avec votre syndic et de tout gérer en un clic.
               </p>
               
-              <motion.div
+              <div
                 className="space-y-4 mb-10"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.35 }}
               >
-                <motion.div variants={staggerItem} className="flex items-center gap-3">
+                <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-[#bb0027] flex items-center justify-center font-bold text-sm">1</div>
                   <span className="font-sans text-sm sm:text-base text-gray-200">Réglez votre situation en un clic</span>
-                </motion.div>
-                <motion.div variants={staggerItem} className="flex items-center gap-3">
+                </div>
+                <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-[#bb0027] flex items-center justify-center font-bold text-sm">2</div>
                   <span className="font-sans text-sm sm:text-base text-gray-200">Accédez à tous vos documents en temps réel</span>
-                </motion.div>
-                <motion.div variants={staggerItem} className="flex items-center gap-3">
+                </div>
+                <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-[#bb0027] flex items-center justify-center font-bold text-sm">3</div>
                   <span className="font-sans text-sm sm:text-base text-gray-200">Suivez l'évolution des travaux</span>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
 
               {/* Download buttons */}
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="#"
+                  href={appStoreUrl}
                   className="transition-transform duration-300 hover:-translate-y-0.5"
-                  onClick={(e) => e.preventDefault()}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Télécharger sur l'App Store"
                 >
                   <img
@@ -523,7 +467,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                   />
                 </a>
               </div>
-            </motion.div>
+            </div>
             
           </div>
         </div>

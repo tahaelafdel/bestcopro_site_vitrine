@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const siteLogo = new URL("../../logo/best_copro_logo.svg", import.meta.url).href;
+const siteLogo = new URL("../../logo/best_copro_logo_optimized.png", import.meta.url).href;
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +30,8 @@ export default function Header() {
             src={siteLogo}
             alt="Best Copro"
             className="block h-12 w-auto max-w-[180px] object-contain"
-            width={1900}
-            height={464}
+            width={380}
+            height={93}
           />
         </button>
 

@@ -1,8 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
 
-const revealViewport = { once: true, margin: "-100px" };
-const smoothEase = [0.16, 1, 0.3, 1] as const;
 
 const partners = [
   {
@@ -81,25 +78,17 @@ export default function PartnersBar() {
   return (
     <div className="bg-white py-20 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
+        <div
           className="text-center max-w-3xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={revealViewport}
-          transition={{ duration: 0.55, ease: smoothEase }}
         >
           <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">NOS PARTENAIRES</span>
           <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Une synergie de confiance</h2>
           <p className="font-sans text-gray-500 text-base md:text-lg">
             Pour vous garantir un service irréprochable au quotidien, Bestcopro s’entoure des leaders du marché et des meilleurs experts techniques au Maroc.
           </p>
-        </motion.div>
-        <motion.div
+        </div>
+        <div
           className="relative overflow-hidden"
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={revealViewport}
-          transition={{ duration: 0.65, ease: smoothEase }}
         >
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
@@ -107,7 +96,7 @@ export default function PartnersBar() {
             {logoSet("primary")}
             {logoSet("duplicate")}
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

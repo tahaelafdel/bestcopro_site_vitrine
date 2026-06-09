@@ -4,9 +4,10 @@ import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
 import { ContactSubmission } from "./types";
 
-const siteLogo = new URL("../logo/best_copro_logo.svg", import.meta.url).href;
+const siteLogo = new URL("../logo/best_copro_logo_optimized.png", import.meta.url).href;
 const appleStoreBadge = new URL("../assets/images/download-apple-store.svg", import.meta.url).href;
 const googleStoreBadge = new URL("../assets/images/download-google-store.svg", import.meta.url).href;
+const appStoreUrl = "https://apps.apple.com/ci/app/bestcopro-mobile-app/id6446234444";
 
 export default function App() {
   const [submissionsCount, setSubmissionsCount] = useState<number>(0);
@@ -50,8 +51,8 @@ export default function App() {
                 src={siteLogo}
                 alt="Best Copro"
                 className="block h-12 w-auto max-w-[180px] object-contain brightness-0 invert"
-                width={1900}
-                height={464}
+                width={380}
+                height={93}
                 loading="lazy"
               />
             </div>
@@ -98,8 +99,9 @@ export default function App() {
             <h4 className="font-display font-bold text-sm text-[#aec7f7] uppercase tracking-wider">Télécharger l'App</h4>
             <div className="flex flex-col items-start gap-3">
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href={appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="transition-transform duration-300 hover:-translate-y-0.5"
                 aria-label="Télécharger dans l'App Store"
               >
