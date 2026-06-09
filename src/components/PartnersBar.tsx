@@ -80,6 +80,7 @@ export default function PartnersBar() {
       <div className="max-w-7xl mx-auto px-6">
         <div
           className="text-center max-w-3xl mx-auto mb-12"
+          data-reveal="up"
         >
           <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">NOS PARTENAIRES</span>
           <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Une synergie de confiance</h2>
@@ -89,6 +90,7 @@ export default function PartnersBar() {
         </div>
         <div
           className="relative overflow-hidden"
+          data-reveal="scale"
         >
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />

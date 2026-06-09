@@ -86,8 +86,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
 
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 text-center">
           <div
-            className="max-w-4xl mx-auto"
-            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto hero-reveal"
           >
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#002046] font-extrabold mb-6 leading-tight tracking-tight">
               Gérez votre copropriété en toute <span className="text-[#bb0027] inline-block relative font-black">simplicité</span>
@@ -120,6 +119,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div
               className="order-2 lg:order-1"
+              data-reveal="right"
             >
               <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">QUI SOMMES-NOUS ?</span>
               <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-black tracking-tight mb-6">
@@ -135,6 +135,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
 
             <div
               className="order-1 lg:order-2 relative rounded-2xl overflow-hidden shadow-xl aspect-4/3 lg:aspect-square"
+              data-reveal="left"
             >
               <img
                 alt="Équipe BestCOPRO devant une résidence avec application mobile"
@@ -155,6 +156,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div
             className="text-center max-w-2xl mx-auto mb-16"
+            data-reveal="up"
           >
             <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">CONTRATS & SERVICES</span>
             <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Notre Expertise</h2>
@@ -165,7 +167,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {/* Card 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between" data-reveal="up">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-[#edf4ff] flex items-center justify-center text-[#002046] group-hover:bg-[#002046] group-hover:text-white transition-colors mb-6">
                   <FileText className="w-6 h-6" />
@@ -181,7 +183,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between reveal-delay-1" data-reveal="up">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-[#edf4ff] flex items-center justify-center text-[#002046] group-hover:bg-[#002046] group-hover:text-white transition-colors mb-6">
                   <DollarSign className="w-6 h-6" />
@@ -197,7 +199,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between reveal-delay-2" data-reveal="up">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-[#edf4ff] flex items-center justify-center text-[#002046] group-hover:bg-[#002046] group-hover:text-white transition-colors mb-6">
                   <Wrench className="w-6 h-6" />
@@ -213,7 +215,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             </div>
 
             {/* Card 4 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-[#aec7f7] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between reveal-delay-3" data-reveal="up">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-[#edf4ff] flex items-center justify-center text-[#002046] group-hover:bg-[#002046] group-hover:text-white transition-colors mb-6">
                   <Smartphone className="w-6 h-6" />
@@ -235,6 +237,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
       <section id="references" className="py-20 bg-[#f0f4f9] overflow-hidden">
         <div
           className="max-w-7xl mx-auto px-6 mb-12 text-center"
+          data-reveal="up"
         >
           <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">NOS RÉFÉRENCES</span>
           <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Résidences de Prestige</h2>
@@ -247,6 +250,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div
             className="flex flex-col lg:flex-row w-full min-h-[460px] lg:min-h-[520px] rounded-2xl overflow-hidden shadow-xl border border-white bg-[#002046]"
+            data-reveal="scale"
           >
             {RESIDENCES_DATA.map((residence) => {
               const isActive = activeResidence === residence.id;
@@ -335,6 +339,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             {/* Visual Phone side-by-side */}
             <div
               className="lg:col-span-5 flex justify-center order-2 lg:order-1"
+              data-reveal="right"
             >
               <div className="relative w-full max-w-[340px] aspect-9/19 bg-black rounded-[48px] p-3 shadow-2xl border-4 border-gray-800 ring-12 ring-gray-900/10">
                 {/* Speaker pill */}
@@ -406,6 +411,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             {/* Description side */}
             <div
               className="lg:col-span-7 lg:pl-8 order-1 lg:order-2"
+              data-reveal="left"
             >
               <span className="text-[#bb0027] bg-white/10 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest inline-block mb-4">
                 APPLICATION MOBILE
@@ -419,6 +425,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               
               <div
                 className="space-y-4 mb-10"
+                data-reveal="up"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-[#bb0027] flex items-center justify-center font-bold text-sm">1</div>
@@ -476,7 +483,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
       {/* 6. Dynamic Testimonials (Loop / Manual) */}
       <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-12">
-          <div className="text-center">
+          <div className="text-center" data-reveal="up">
             <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">TÉMOIGNAGES</span>
             <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Témoignages</h2>
             <p className="font-sans text-gray-500 text-sm sm:text-base">Nos clients de Rabat-Salé ont testé et aimé notre réactivité.</p>
@@ -484,7 +491,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
         </div>
 
         {/* Carousel strip */}
-        <div className="relative w-full overflow-hidden py-8 bg-gray-50/50 border-y border-gray-100">
+        <div className="relative w-full overflow-hidden py-8 bg-gray-50/50 border-y border-gray-100" data-reveal="up">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-32 bg-gradient-to-r from-white via-white/90 to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-32 bg-gradient-to-l from-white via-white/90 to-transparent" />
           <div className="flex w-max animate-testimonials">
@@ -570,7 +577,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
             
             {/* Left Info Column */}
-            <div className="lg:col-span-5 flex flex-col justify-between">
+            <div className="lg:col-span-5 flex flex-col justify-between" data-reveal="right">
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-1 h-6 bg-[#bb0027]"></div>
@@ -632,7 +639,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             </div>
 
             {/* Right solid Crimson Form */}
-            <div className="lg:col-span-7 bg-[#bb0027] p-8 sm:p-12 rounded-3xl shadow-xl text-white relative overflow-hidden flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-[#bb0027] p-8 sm:p-12 rounded-3xl shadow-xl text-white relative overflow-hidden flex flex-col justify-between" data-reveal="left">
               {/* Decorative graphic layout from mockup image */}
               <div className="absolute right-[-60px] bottom-[-60px] w-64 h-64 border-[32px] border-white/5 rounded-full pointer-events-none select-none"></div>
               

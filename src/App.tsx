@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
+import { useScrollReveal } from "./hooks/useScrollReveal";
 import { ContactSubmission } from "./types";
 
 const siteLogo = new URL("../logo/best_copro_logo_optimized.png", import.meta.url).href;
@@ -11,6 +12,7 @@ const appStoreUrl = "https://apps.apple.com/ci/app/bestcopro-mobile-app/id644623
 
 export default function App() {
   const [submissionsCount, setSubmissionsCount] = useState<number>(0);
+  useScrollReveal();
 
   useEffect(() => {
     const saved = localStorage.getItem("bestcopro_submissions_count");
@@ -133,12 +135,10 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-white/5 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>{new Date().getFullYear()} Bestcopro. Tous droits réservés. Gestion professionnelle de propriétés de luxe au Maroc.</p>
-          <div className="flex gap-4">
-            <span className="cursor-pointer hover:text-gray-300 transition-colors">Politique de Confidentialité</span>
-            <span>-</span>
-            <span className="cursor-pointer hover:text-gray-300 transition-colors">Conditions Générales</span>
-          </div>
+          <p>{new Date().getFullYear()} Bestcopro. Tous droits réservés.</p>
+          <a href="/" className="hover:text-gray-300 transition-colors">
+            Développé par Arc Consulting Morocco
+          </a>
         </div>
       </footer>
     </div>
