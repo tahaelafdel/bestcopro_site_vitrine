@@ -23,6 +23,7 @@ const syndicHeroImage = new URL("../../assets/images/image_syndic_hero.webp", im
 const appleStoreBadge = new URL("../../assets/images/download-apple-store.svg", import.meta.url).href;
 const googleStoreBadge = new URL("../../assets/images/download-google-store.svg", import.meta.url).href;
 const appStoreUrl = "https://apps.apple.com/ci/app/bestcopro-mobile-app/id6446234444";
+const heroBackgroundImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuAFua32oylC4XHlsFr4yN70_-__U4mG-vqSq94CdxH8hR0iYHOr-6mJJSi3mdziPeNL0MPufcwDMSIqRaBuMfDsdKH0nDeXgqwShtu_x6ctrc5pO_VlLkICc-OpVyB-cJRNDkSXE0zTy66bxjtC10wOyxE2UI_cEJZnADgS2DQI7G30lWPWk-KTTOPdtXs1I8zHtGa8RkQDfuwcY2pMpLtfWXiGpitNH7OtwmgnLN8ZWlQTWxUqcPCMwLyBo9Oy9yaEo4ktvKcBz64";
 
 
 
@@ -76,7 +77,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             width={1600}
             height={900}
             fetchPriority="high"
-            src={syndicHeroImage}
+            src={heroBackgroundImage}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#f7f9ff]/90 via-transparent to-[#f7f9ff]/90"></div>
           {/* Subtle grid pattern overlay */}
