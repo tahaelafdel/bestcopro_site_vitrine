@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PartnersBar from "./PartnersBar";
 import { 
   Building, 
   MapPin, 
@@ -324,9 +323,6 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
           </div>
         </div>
       </section>
-
-      {/* Partners Bar */}
-      <PartnersBar />
 
       {/* 5. Mobile App Teaser */}
       <section id="app-teaser" className="py-20 bg-gradient-to-br from-[#002046] via-[#11223D] to-[#1b365d] text-white overflow-hidden relative">
