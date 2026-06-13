@@ -21,6 +21,7 @@ import { ContactSubmission } from "../types";
 const syndicHeroImage = new URL("../../assets/images/image_syndic_hero.webp", import.meta.url).href;
 const appleStoreBadge = new URL("../../assets/images/download-apple-store.svg", import.meta.url).href;
 const googleStoreBadge = new URL("../../assets/images/download-google-store.svg", import.meta.url).href;
+const appMockupImage = new URL("../../logo/maquette_app.webp", import.meta.url).href;
 const appStoreUrl = "https://apps.apple.com/ci/app/bestcopro-mobile-app/id6446234444";
 const heroBackgroundImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuAFua32oylC4XHlsFr4yN70_-__U4mG-vqSq94CdxH8hR0iYHOr-6mJJSi3mdziPeNL0MPufcwDMSIqRaBuMfDsdKH0nDeXgqwShtu_x6ctrc5pO_VlLkICc-OpVyB-cJRNDkSXE0zTy66bxjtC10wOyxE2UI_cEJZnADgS2DQI7G30lWPWk-KTTOPdtXs1I8zHtGa8RkQDfuwcY2pMpLtfWXiGpitNH7OtwmgnLN8ZWlQTWxUqcPCMwLyBo9Oy9yaEo4ktvKcBz64";
 
@@ -379,7 +380,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                 </div>
                 
                 {/* Internal Screen mockup */}
-                <div className="w-full h-full rounded-[38px] overflow-hidden bg-[#f7f9ff] text-black shrink-0 relative flex flex-col justify-between">
+                <div aria-hidden="true" className="w-full h-full rounded-[38px] overflow-hidden bg-[#f7f9ff] text-black shrink-0 relative flex flex-col justify-between opacity-0">
                   {/* Top phone header */}
                   <div className="pt-8 px-4 pb-3 bg-[#002046] text-white flex justify-between items-center">
                     <div>
@@ -436,6 +437,14 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                     <span>Moi</span>
                   </div>
                 </div>
+                <img
+                  src={appMockupImage}
+                  alt="Capture de l'application mobile BEST COPRO"
+                  className="absolute inset-3 z-10 w-[calc(100%-1.5rem)] h-[calc(100%-1.5rem)] rounded-[38px] object-cover object-top bg-[#f7f9ff]"
+                  width={720}
+                  height={1520}
+                  loading="lazy"
+                />
               </div>
             </div>
 
