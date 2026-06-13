@@ -63,7 +63,7 @@ export const TESTIMONIALS_DATA = [
     id: "1",
     name: "Sara Mellali",
     avatarUrl: saraMellaliImage,
-    text: "Pour faire une réclamation, c'est via l'application Mobile de Bestcopro; cela me permet de résoudre le soucis en un temps record.",
+    text: "Pour faire une réclamation, c'est via l'application Mobile de BEST COPRO; cela me permet de résoudre le soucis en un temps record.",
     role: "Propriétaire - Résidence Les Marines"
   },
   {
@@ -84,7 +84,7 @@ export const TESTIMONIALS_DATA = [
     id: "4",
     name: "Abderrahim Kilani",
     avatarUrl: abderrahimKilaniImage,
-    text: "Bestcopro nous apporte un suivi clair et régulier. Les demandes sont traitées plus vite et la communication avec les copropriétaires est beaucoup plus simple.",
+    text: "BEST COPRO nous apporte un suivi clair et régulier. Les demandes sont traitées plus vite et la communication avec les copropriétaires est beaucoup plus simple.",
     role: "Membre du conseil syndical"
   }
 ];

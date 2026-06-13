@@ -85,7 +85,7 @@ export default function PartnersBar() {
           <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">NOS PARTENAIRES</span>
           <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Une synergie de confiance</h2>
           <p className="font-sans text-gray-500 text-base md:text-lg">
-            Pour vous garantir un service irréprochable au quotidien, Bestcopro s’entoure des leaders du marché et des meilleurs experts techniques au Maroc.
+            Pour vous garantir un service irréprochable au quotidien, BEST COPRO s’entoure des leaders du marché et des meilleurs experts techniques au Maroc.
           </p>
         </div>
         <div

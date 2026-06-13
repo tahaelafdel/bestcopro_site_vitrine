@@ -135,7 +135,7 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-white/5 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>{new Date().getFullYear()} Bestcopro. Tous droits réservés.</p>
+          <p>{new Date().getFullYear()} BEST COPRO Tous droits réservés</p>
           <a href="/" className="hover:text-gray-300 transition-colors">
             Développé par Arc Consulting Morocco
           </a>

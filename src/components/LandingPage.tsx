@@ -10,9 +10,9 @@ import {
   Wrench, 
   Smartphone, 
   CheckCircle, 
-  Share2, 
   Instagram, 
-  Globe, 
+  Facebook,
+  Linkedin,
   Star
 } from "lucide-react";
 import { RESIDENCES_DATA, TESTIMONIALS_DATA } from "../data";
@@ -39,29 +39,64 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [website, setWebsite] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
-  const [lastSubmission, setLastSubmission] = useState<any>(null);
+  const [lastSubmission, setLastSubmission] = useState<Pick<ContactSubmission, "fullName" | "email" | "phone"> | null>(null);
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullName || !email || !phone) return;
+    if (!fullName || !email || !phone || isSubmitting) return;
 
-    onContactSubmit({
+    setSubmitError("");
+    setIsSubmitting(true);
+
+    const submission = {
       fullName,
       email,
       phone,
-      message: message || "Demande d'information/contact depuis la landing page."
-    });
+      message: message || "Demande d'information/contact depuis la landing page.",
+      website,
+    };
 
-    setLastSubmission({ fullName, email, phone });
-    setFullName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
-    setShowSuccess(true);
-    setTimeout(() => {
-      setShowSuccess(false);
-    }, 8000);
+    try {
+      const response = await fetch("/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submission),
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || result?.success === false) {
+        throw new Error(result?.message || "Votre message n'a pas pu être envoyé.");
+      }
+
+      onContactSubmit({
+        fullName,
+        email,
+        phone,
+        message: submission.message,
+      });
+
+      setLastSubmission({ fullName, email, phone });
+      setFullName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      setWebsite("");
+      setShowSuccess(true);
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 8000);
+    } catch {
+      setSubmitError("L'envoi a échoué. Vous pouvez nous écrire directement à contact@bestcopro.ma.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -122,10 +157,10 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
             >
               <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">QUI SOMMES-NOUS ?</span>
               <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-black tracking-tight mb-6">
-                <span className="text-[#bb0027]">BestCOPRO</span> : Le syndic nouvelle génération qui redéfinit la copropriété au Maroc
+                <span className="text-[#bb0027]">BEST COPRO</span> : Le syndic nouvelle génération qui redéfinit la copropriété au Maroc
               </h2>
               <p className="font-sans text-gray-600 mb-6 leading-relaxed">
-                BestCOPRO, c’est avant tout une équipe de professionnels passionnés, expérimentés et ambitieux. Nous unissons nos forces pour moderniser la gestion de vos résidences et nous adapter chaque jour aux standards d'aujourd'hui et de demain.
+                BEST COPRO, c’est avant tout une équipe de professionnels passionnés, expérimentés et ambitieux. Nous unissons nos forces pour moderniser la gestion de vos résidences et nous adapter chaque jour aux standards d'aujourd'hui et de demain.
               </p>
               <p className="font-sans text-gray-600 leading-relaxed">
                 Notre objectif est simple : vous offrir un service transparent, réactif et un accompagnement de tous les instants pour valoriser votre patrimoine en toute sérénité.
@@ -137,7 +172,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               data-reveal="left"
             >
               <img
-                alt="Équipe BestCOPRO devant une résidence avec application mobile"
+                alt="Équipe BEST COPRO devant une résidence avec application mobile"
                 className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                 width={1024}
                 height={1024}
@@ -241,7 +276,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
           <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">NOS RÉFÉRENCES</span>
           <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Résidences de Prestige</h2>
           <p className="font-sans text-gray-500 text-base md:text-lg max-w-2xl mx-auto">
-            Découvrez quelques-unes des copropriétés résidentielles marocaines de haut standing qui font confiance à Bestcopro.
+            Découvrez quelques-unes des copropriétés résidentielles marocaines de haut standing qui font confiance à BEST COPRO.
           </p>
         </div>
 
@@ -413,7 +448,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                 APPLICATION MOBILE
               </span>
               <h2 className="font-display text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
-                BESTCOPRO Mobile Application
+                BEST COPRO Mobile Application
               </h2>
               <p className="font-sans text-base md:text-lg text-[#87a0cd] mb-8 leading-relaxed">
                 Votre copropriété dans votre poche. Une application simple et intuitive conçue pour vous permettre de piloter votre quotidien, de communiquer avec votre syndic et de tout gérer en un clic.
@@ -621,14 +656,14 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <div className="pt-8 mt-12 border-t border-gray-100">
                 <h5 className="font-bold text-xs text-gray-400 uppercase tracking-widest mb-4">Suivez-nous :</h5>
                 <div className="flex gap-4">
-                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#002046] hover:text-white transition-all shadow-xs" aria-label="Partager Bestcopro">
-                    <Share2 className="w-5 h-5" />
-                  </button>
-                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#bb0027] hover:text-white transition-all shadow-xs" aria-label="Instagram Bestcopro">
+                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#bb0027] hover:text-white transition-all shadow-xs" aria-label="Instagram BEST COPRO">
                     <Instagram className="w-5 h-5" />
                   </button>
-                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all shadow-xs" aria-label="Site web Bestcopro">
-                    <Globe className="w-5 h-5" />
+                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#1877f2] hover:text-white transition-all shadow-xs" aria-label="Facebook BEST COPRO">
+                    <Facebook className="w-5 h-5" />
+                  </button>
+                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#0a66c2] hover:text-white transition-all shadow-xs" aria-label="LinkedIn BEST COPRO">
+                    <Linkedin className="w-5 h-5" />
                   </button>
                 </div>
               </div>
@@ -650,11 +685,29 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                     <p className="text-xs text-red-50 leading-relaxed mb-4">
                       Votre demande a bien été envoyée. Nos conseillers de Salé vont vous recontacter par email ({lastSubmission.email}) ou téléphone ({lastSubmission.phone}).
                     </p>
-                    <span className="text-[10px] font-mono uppercase bg-white/10 px-2.5 py-1 rounded-full">Message enregistré localement</span>
+                    <span className="text-[10px] font-mono uppercase bg-white/10 px-2.5 py-1 rounded-full">Message transmis</span>
+                  </div>
+                ) : null}
+
+                {submitError ? (
+                  <div className="p-4 bg-white/14 rounded-xl border border-white/20 mb-8 text-sm text-red-50">
+                    {submitError}
                   </div>
                 ) : null}
 
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="website">Site web</label>
+                    <input
+                      id="website"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={website}
+                      onChange={(e) => setWebsite(e.target.value)}
+                    />
+                  </div>
+
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-red-50">Nom complet</label>
                     <input 
@@ -705,9 +758,10 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                   <div className="pt-2">
                     <button 
                       type="submit" 
-                      className="cursor-pointer w-full sm:w-auto bg-white hover:bg-red-50 text-[#bb0027] font-sans text-sm font-bold px-8 py-3.5 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                      disabled={isSubmitting}
+                      className="cursor-pointer w-full sm:w-auto bg-white hover:bg-red-50 text-[#bb0027] font-sans text-sm font-bold px-8 py-3.5 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                      Envoyer
+                      {isSubmitting ? "Envoi en cours..." : "Envoyer"}
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
