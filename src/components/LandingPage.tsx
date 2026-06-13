@@ -440,7 +440,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                 <img
                   src={appMockupImage}
                   alt="Capture de l'application mobile BEST COPRO"
-                  className="absolute inset-3 z-10 w-[calc(100%-1.5rem)] h-[calc(100%-1.5rem)] rounded-[38px] object-cover object-top bg-[#f7f9ff]"
+                  className="absolute inset-3 z-10 w-[calc(100%-1.5rem)] h-[calc(100%-1.5rem)] rounded-[38px] object-contain object-center bg-[#f7f9ff]"
                   width={720}
                   height={1520}
                   loading="lazy"
