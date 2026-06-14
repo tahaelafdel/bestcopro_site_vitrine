@@ -52,7 +52,7 @@ export default function App() {
               <img
                 src={siteLogo}
                 alt="Best Copro"
-                className="block h-12 w-auto max-w-[180px] object-contain brightness-0 invert"
+                className="block h-14 w-auto max-w-[210px] object-contain brightness-0 invert"
                 width={380}
                 height={93}
                 loading="lazy"
