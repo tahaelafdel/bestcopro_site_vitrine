@@ -59,9 +59,12 @@ export default function App() {
               />
             </div>
 
-            <p className="font-sans text-xs text-gray-400 leading-relaxed max-w-sm">
-              Besoin d'un conseil, une question à poser... contactez-nous. Notre centrale de Salé est active du lundi au samedi pour simplifier la vie de votre syndic.
-            </p>
+            <div className="max-w-sm">
+              <h3 className="font-display text-xl font-bold text-white mb-3">Une question ? Un conseil ?</h3>
+              <p className="font-sans text-xs text-gray-400 leading-relaxed">
+                Nos experts sont à votre écoute pour simplifier la gestion de votre syndic. Contactez notre siège de Salé, disponible du lundi au samedi, pour un accompagnement sur mesure.
+              </p>
+            </div>
 
             <div className="space-y-2 text-xs text-gray-400">
               <div className="flex items-center gap-2">

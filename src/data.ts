@@ -4,6 +4,7 @@ const saraMellaliImage = new URL("../assets/images/sara mellali.webp", import.me
 const hichamKoundousImage = new URL("../assets/images/hicham koundous.webp", import.meta.url).href;
 const aliDerrafImage = new URL("../assets/images/Ali derraf.webp", import.meta.url).href;
 const abderrahimKilaniImage = new URL("../assets/images/abderrahim kilani.webp", import.meta.url).href;
+const majorelleImage = new URL("../assets/images/Majorelle.jpeg", import.meta.url).href;
 
 export interface Residence {
   id: string;
@@ -14,6 +15,13 @@ export interface Residence {
 }
 
 export const RESIDENCES_DATA: Residence[] = [
+  {
+    id: "majorelle",
+    name: "Résidence Majorelle",
+    location: "El Menzeh, Rabat",
+    imageUrl: majorelleImage,
+    details: "Résidence à El Menzeh, Rabat, accompagnée par BEST COPRO pour une gestion sereine et transparente."
+  },
   {
     id: "andalucia",
     name: "Résidence Andalucia",

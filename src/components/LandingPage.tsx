@@ -33,7 +33,7 @@ interface LandingPageProps {
 
 export default function LandingPage({ onContactSubmit }: LandingPageProps) {
   // Accordion for residences
-  const [activeResidence, setActiveResidence] = useState<string>("andalucia");
+  const [activeResidence, setActiveResidence] = useState<string>("majorelle");
   
   // Local state for the contact form
   const [fullName, setFullName] = useState("");
@@ -275,9 +275,9 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
           data-reveal="up"
         >
           <span className="text-[#bb0027] font-bold text-xs uppercase tracking-widest inline-block mb-3">NOS RÉFÉRENCES</span>
-          <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Résidences de Prestige</h2>
+          <h2 className="font-display text-3xl md:text-4xl text-[#002046] font-bold tracking-tight mb-4">Ils nous font confiance</h2>
           <p className="font-sans text-gray-500 text-base md:text-lg max-w-2xl mx-auto">
-            Découvrez quelques-unes des copropriétés résidentielles marocaines de haut standing qui font confiance à BEST COPRO.
+            Découvrez les copropriétés résidentielles à travers le Maroc qui ont choisi la sérénité en confiant leur gestion à Bestcopro.
           </p>
         </div>
 
@@ -665,15 +665,15 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
               <div className="pt-8 mt-12 border-t border-gray-100">
                 <h5 className="font-bold text-xs text-gray-400 uppercase tracking-widest mb-4">Suivez-nous :</h5>
                 <div className="flex gap-4">
-                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#bb0027] hover:text-white transition-all shadow-xs" aria-label="Instagram BEST COPRO">
+                  <a href="https://www.instagram.com/bestcopro/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#bb0027] hover:text-white transition-all shadow-xs" aria-label="Instagram BEST COPRO">
                     <Instagram className="w-5 h-5" />
-                  </button>
-                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#1877f2] hover:text-white transition-all shadow-xs" aria-label="Facebook BEST COPRO">
+                  </a>
+                  <a href="https://www.facebook.com/best.copro.3" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#1877f2] hover:text-white transition-all shadow-xs" aria-label="Facebook BEST COPRO">
                     <Facebook className="w-5 h-5" />
-                  </button>
-                  <button type="button" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#0a66c2] hover:text-white transition-all shadow-xs" aria-label="LinkedIn BEST COPRO">
+                  </a>
+                  <a href="https://www.linkedin.com/company/best-copro" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#0a66c2] hover:text-white transition-all shadow-xs" aria-label="LinkedIn BEST COPRO">
                     <Linkedin className="w-5 h-5" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
