@@ -5,6 +5,9 @@ const hichamKoundousImage = new URL("../assets/images/hicham koundous.webp", imp
 const aliDerrafImage = new URL("../assets/images/Ali derraf.webp", import.meta.url).href;
 const abderrahimKilaniImage = new URL("../assets/images/abderrahim kilani.webp", import.meta.url).href;
 const majorelleImage = new URL("../assets/images/Majorelle.jpeg", import.meta.url).href;
+const meskEllilImage = new URL("../assets/images/msklil.webp", import.meta.url).href;
+const alleesDuParcImage = new URL("../assets/images/lesallesduparc.webp", import.meta.url).href;
+const bassatine2Image = new URL("../assets/images/albassatine2.webp", import.meta.url).href;
 
 export interface Residence {
   id: string;
@@ -63,6 +66,27 @@ export const RESIDENCES_DATA: Residence[] = [
     location: "Hay Riad, Rabat",
     imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuAObDIW_9s0D9c1v_CDTNMnaWobGGeVaiNOut5rW7tTBZjF-hrkyoxt-bprgQzO9l5Uomx9xy-s6gEaDSt70BpHSrUxDiN2WdinTafb03X3Zib8R7P1fL8BWGMYED0NEbP4uT1lU7omcXK7MsHydetqXIU8HbhOPVJF45oUgqehYu12WVmfbCyq3On5gUmdXHonwXCqSF30myCIwBMz_Oyd4vzVZndZTPLYMH3herJ-wjGwPi42-nRfCerqnPWaESwhHHBPGuIhTPM",
     details: "Allure chic néo-andalouse, larges baies vitrées, isolations thermique et acoustique."
+  },
+  {
+    id: "mesk-ellil",
+    name: "Résidence Mesk Ellil",
+    location: "Hay Riad, Rabat",
+    imageUrl: meskEllilImage,
+    details: "Résidence située à Hay Riad, Rabat, accompagnée par BEST COPRO pour une gestion fiable et transparente."
+  },
+  {
+    id: "allees-du-parc",
+    name: "Résidence Les Allées du Parc",
+    location: "Oulfa, Casablanca",
+    imageUrl: alleesDuParcImage,
+    details: "Résidence à Oulfa, Casablanca, suivie par BEST COPRO avec une gestion professionnelle et connectée."
+  },
+  {
+    id: "bassatine-2",
+    name: "Résidence Bassatine 2",
+    location: "Témara",
+    imageUrl: bassatine2Image,
+    details: "Résidence à Témara, accompagnée par BEST COPRO pour un suivi clair, réactif et serein."
   }
 ];
 
