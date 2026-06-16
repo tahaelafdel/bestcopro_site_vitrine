@@ -325,7 +325,7 @@ export default function LandingPage({ onContactSubmit }: LandingPageProps) {
                   }`}></div>
 
                   {/* Vertical Name (Hidden when active on Desktop) */}
-                  <div className={`hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-270 white-space-nowrap font-display font-extrabold text-base tracking-widest text-[#d1e4fb] uppercase transition-all duration-500 pointer-events-none select-none uppercase-letter-spacing-all ${
+                  <div className={`hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-270 whitespace-nowrap min-w-max font-display font-extrabold text-base tracking-widest text-[#d1e4fb] uppercase transition-all duration-500 pointer-events-none select-none uppercase-letter-spacing-all ${
                     isActive ? "opacity-0 scale-90 translate-y-10" : "opacity-100 scale-100"
                   }`}>
                     {residence.name}
